@@ -36,13 +36,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-/* genuinely surprised nothing is on fire yet
-also i must immortalize the experience i just had
-i clicked a help button on android studios and it opened a browser page that's a guide to install intellij idea
-i cannot make this up
-it's asking to be replaced
-i should not be laughing
-*/
+//everything is actually working on this end. i'm shocked.
+//i think i just need someone else with github desktop to test it at this point
 
 /**
  * This file contains an minimal example of a Linear "OpMode". An OpMode is a 'program' that runs in either
@@ -57,8 +52,8 @@ i should not be laughing
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
-@Disabled
+@TeleOp(name="Test2", group="Linear Opmode")
+//@Disabled
 public class Test2 extends LinearOpMode {
 
     // Declare OpMode members.
