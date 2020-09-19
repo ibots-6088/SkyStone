@@ -1,0 +1,93 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+@Autonomous(name="Forward and Left", group="Autonomous")
+//@Disabled
+public class ForwardLeft extends LinearOpMode {
+
+    private ElapsedTime runtime = new ElapsedTime();
+    private DcMotor lf = null;
+    private DcMotor rf = null;
+    private DcMotor lb = null;
+    private DcMotor rb = null;
+    private Servo atmt = null;
+    private DcMotor liftL = null;
+    private DcMotor liftR = null;
+
+    @Override
+    public void runOpMode() {
+
+        telemetry.addData("Status", "Ready to run");    //
+        telemetry.update();
+
+        lf  = hardwareMap.get(DcMotor.class, "lf");
+        rf = hardwareMap.get(DcMotor.class, "rf");
+        lb  = hardwareMap.get(DcMotor.class, "lb");
+        rb = hardwareMap.get(DcMotor.class, "rb");
+        atmt = hardwareMap.get(Servo.class, "atmt");
+        liftL = hardwareMap.get(DcMotor.class, "liftl");
+        liftR = hardwareMap.get(DcMotor.class, "liftr");
+
+        lf.setDirection(DcMotor.Direction.FORWARD);
+        rf.setDirection(DcMotor.Direction.REVERSE);
+        lb.setDirection(DcMotor.Direction.FORWARD);
+        rb.setDirection(DcMotor.Direction.FORWARD);
+        liftL.setDirection(DcMotor.Direction.FORWARD);
+        liftR.setDirection(DcMotor.Direction.REVERSE);
+
+        waitForStart();
+        runtime.reset();
+
+        while (opModeIsActive() && (runtime.seconds() < 30.0)) {
+
+            lf.setPower(0);
+            rf.setPower(0);
+            lb.setPower(0);
+            rb.setPower(0);
+            liftL.setPower(0);
+            liftR.setPower(0);
+            sleep(2000);
+
+            lf.setPower(1.0);
+            rf.setPower(1.0);
+            lb.setPower(1.0);
+            rb.setPower(1.0);
+            liftL.setPower(0);
+            liftR.setPower(0);
+            sleep(900);
+
+            lf.setPower(0);
+            rf.setPower(0);
+            lb.setPower(0);
+            rb.setPower(0);
+            liftL.setPower(0);
+            liftR.setPower(0);
+            sleep(300);
+
+            lf.setPower(-1.0);
+            rf.setPower(1.0);
+            lb.setPower(1.0);
+            rb.setPower(-1.0);
+            liftL.setPower(0);
+            liftR.setPower(0);
+            sleep(800);
+
+            lf.setPower(0);
+            rf.setPower(0);
+            lb.setPower(0);
+            rb.setPower(0);
+            liftL.setPower(0);
+            liftR.setPower(0);
+            sleep(2000);
+        }
+
+    }
+}
