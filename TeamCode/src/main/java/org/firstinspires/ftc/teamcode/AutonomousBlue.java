@@ -42,7 +42,7 @@ public class AutonomousBlue extends LinearOpMode {
         telemetry.addData("Status", "Ready to run");
         telemetry.update();
 
-        lf  = hardwareMap.get(DcMotor.class, "lf");
+        lf  = hardwareMap.get(DcMotor.class, "LF");
         rf = hardwareMap.get(DcMotor.class, "rf");
         lb  = hardwareMap.get(DcMotor.class, "lb");
         rb = hardwareMap.get(DcMotor.class, "rb");
